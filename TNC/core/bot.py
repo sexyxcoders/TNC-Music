@@ -2,8 +2,13 @@ import asyncio
 import uvloop
 import sys
 
-# ✅ Properly set uvloop policy instead of uvloop.install()
+# ✅ Properly set uvloop policy and ensure a loop exists
 asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
+
+try:
+    asyncio.get_running_loop()
+except RuntimeError:
+    asyncio.set_event_loop(asyncio.new_event_loop())
 
 from pyrogram import Client, errors
 from pyrogram.enums import ChatMemberStatus
@@ -62,17 +67,22 @@ class TNC(Client):
             )
             sys.exit(1)
 
-        LOGGER(__name__).info(f"Music Bot Started as {self.name}")
+        LOGGER(__name__).info(f"✅ Music Bot Started as {self.name}")
 
     async def stop(self):
         await super().stop()
+        LOGGER(__name__).info("🛑 Music Bot stopped cleanly.")
+
+
+async def main():
+    bot = TNC()
+    await bot.start()
+
+    # ✅ Keeps the bot alive (especially useful if pytgcalls or tasks run)
+    await asyncio.Event().wait()
 
 
 if __name__ == "__main__":
-    # ✅ Ensure event loop exists
-    try:
-        asyncio.get_running_loop()
-    except RuntimeError:
-        asyncio.set_event_loop(asyncio.new_event_loop())
-
-    asyncio.run(TNC().start())
+    # ✅ Safe asyncio run — no race condition, no missing loop
+    uvloop.install()
+    asyncio.run(main())
