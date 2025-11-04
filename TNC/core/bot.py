@@ -1,5 +1,12 @@
-from pyrogram.enums import ChatMemberStatus
+import asyncio
+import uvloop
 import sys
+
+# Use uvloop for faster async performance
+asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
+
+from pyrogram import Client, errors  # ✅ MISSING IMPORT FIXED
+from pyrogram.enums import ChatMemberStatus
 
 import config
 from ..logging import LOGGER
@@ -8,6 +15,7 @@ from ..logging import LOGGER
 class TNC(Client):
     def __init__(self, name="TNCxMUSIC"):
         LOGGER(__name__).info("Starting Bot...")
+
         super().__init__(
             name=name,
             api_id=config.API_ID,
@@ -38,12 +46,12 @@ class TNC(Client):
             )
         except (errors.ChannelInvalid, errors.PeerIdInvalid, ValueError):
             LOGGER(__name__).error(
-                "Bot has failed to access the log group/channel. Make sure the bot is added as admin."
+                "Bot failed to access the log group/channel. Make sure the bot is added as admin."
             )
             sys.exit(1)
         except Exception as ex:
             LOGGER(__name__).error(
-                f"Bot has failed to access the log group/channel. Reason: {type(ex).__name__}"
+                f"Bot failed to access the log group/channel. Reason: {type(ex).__name__}"
             )
             sys.exit(1)
 
