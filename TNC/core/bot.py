@@ -2,8 +2,8 @@ import asyncio
 import uvloop
 import sys
 
-# ✅ Install uvloop properly before Pyrogram import
-uvloop.install()
+# ✅ Properly set uvloop policy instead of uvloop.install()
+asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
 
 from pyrogram import Client, errors
 from pyrogram.enums import ChatMemberStatus
@@ -69,5 +69,10 @@ class TNC(Client):
 
 
 if __name__ == "__main__":
-    # ✅ Ensure proper event loop setup
+    # ✅ Ensure event loop exists
+    try:
+        asyncio.get_running_loop()
+    except RuntimeError:
+        asyncio.set_event_loop(asyncio.new_event_loop())
+
     asyncio.run(TNC().start())
