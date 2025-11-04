@@ -2,10 +2,10 @@ import asyncio
 import uvloop
 import sys
 
-# Use uvloop for faster async performance
-asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
+# ✅ Install uvloop properly before Pyrogram import
+uvloop.install()
 
-from pyrogram import Client, errors  # ✅ MISSING IMPORT FIXED
+from pyrogram import Client, errors
 from pyrogram.enums import ChatMemberStatus
 
 import config
@@ -66,3 +66,8 @@ class TNC(Client):
 
     async def stop(self):
         await super().stop()
+
+
+if __name__ == "__main__":
+    # ✅ Ensure proper event loop setup
+    asyncio.run(TNC().start())
