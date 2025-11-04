@@ -65,8 +65,8 @@ GIT_TOKEN = getenv("GIT_TOKEN", None)
 # ------------------------------
 # Support links
 # ------------------------------
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/HamsterUpdatess")
-SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/+w9ODyFLtrN45YTY1")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/TNCnetwork")
+SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/TNCmeetups")
 
 for name, link in [("SUPPORT_CHANNEL", SUPPORT_CHANNEL), ("SUPPORT_CHAT", SUPPORT_CHAT)]:
     if link and not re.match(r"(?:http|https)://", link):
