@@ -15,10 +15,10 @@ BOT_TOKEN = getenv("BOT_TOKEN", "")
 # ------------------------------
 # Bot & Owner Info
 # ------------------------------
-OWNER_USERNAME = getenv("OWNER_USERNAME", "OnForHer")
-BOT_USERNAME = getenv("BOT_USERNAME", "MahiruProBot")
-BOT_NAME = getenv("BOT_NAME", "˹ɱ𝛂ʜ𝛊ʀʊ ɱʊ𝛅𝛊ς˼ ♪ [ 𝛈 ꪮ ⋏∂𝛅 ]")
-ASSUSERNAME = getenv("ASSUSERNAME", "MahiruxAssistant")
+OWNER_USERNAME = getenv("OWNER_USERNAME", "noncarder")
+BOT_USERNAME = getenv("BOT_USERNAME", "ZainaMusicRobot")
+BOT_NAME = getenv("BOT_NAME", "ZAINA X MUSIC")
+ASSUSERNAME = getenv("ASSUSERNAME", "AssistantxxTNC")
 
 # ------------------------------
 # MongoDB
@@ -48,8 +48,8 @@ def get_int_env(var_name, default):
     except ValueError:
         raise ValueError(f"[ERROR] {var_name} must be a numeric Telegram ID. Got: {value}")
 
-LOGGER_ID = int(getenv("LOGGER_ID", "-1003128590255"))
-OWNER_ID = int(getenv("OWNER_ID","7804917014"))
+LOGGER_ID = int(getenv("LOGGER_ID", ""))
+OWNER_ID = int(getenv("OWNER_ID","8449801101"))
 
 # ------------------------------
 # Heroku / Git
