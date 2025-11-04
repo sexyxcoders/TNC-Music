@@ -2,7 +2,7 @@ from TNC.core.bot import TNCxMUSIC
 from TNC.core.dir import dirr
 from TNC.core.git import git
 from TNC.core.userbot import Userbot
-from VILLAIN_MUSIC.misc import dbb, heroku
+from TNC.misc import dbb, heroku
 
 from SafoneAPI import SafoneAPI
 from .logging import LOGGER
