@@ -4,50 +4,50 @@ from dotenv import load_dotenv
 from pyrogram import filters
 
 # ============================================================
-# 🌐 LOAD ENVIRONMENT VARIABLES
+# ʟᴏᴀᴅ ᴇɴᴠɪʀᴏɴᴍᴇɴᴛᴀʟ ᴠᴀʀɪᴀʙʟᴇs
 # ============================================================
 load_dotenv()
 
 # ============================================================
-# ⚙️ PYROGRAM API CONFIG
+#  ᴘʏʀᴏɢʀᴀᴍ ᴀᴘɪ ᴄᴏɴғɪɢ
 # ============================================================
-API_ID = int(getenv("API_ID", "22657083"))
+API_ID = int(getenv("API_ID", ""))
 API_HASH = getenv("API_HASH", "d6186691704bd901bdab275ceaab88f3")
 BOT_TOKEN = getenv("BOT_TOKEN", "")
 
 # ============================================================
 # 👑 BOT & OWNER INFO
 # ============================================================
-OWNER_USERNAME = getenv("OWNER_USERNAME", "TNC_Official")
+OWNER_USERNAME = getenv("OWNER_USERNAME", "noncarder")
 OWNER_ID = int(getenv("OWNER_ID", "8449801101"))
-BOT_USERNAME = getenv("BOT_USERNAME", "TNCXMusicBot")
-BOT_NAME = getenv("BOT_NAME", "TNC X MUSIC 🎧")
-ASSUSERNAME = getenv("ASSUSERNAME", "TNCXAssistant")
+BOT_USERNAME = getenv("BOT_USERNAME", "")
+BOT_NAME = getenv("BOT_NAME", "")
+ASSUSERNAME = getenv("ASSUSERNAME", "")
 
 # ============================================================
 # 🍃 MONGODB DATABASE
 # ============================================================
 MONGO_DB_URI = getenv(
     "MONGO_DB_URI",
-    "mongodb+srv://TNC_Database_User:TNCXmusic@cluster0.mongodb.net/?retryWrites=true&w=majority&appName=TNCX",
+    "",
 )
 
 # ============================================================
 # ⏱️ TIME LIMITS
 # ============================================================
-DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 17000))
+DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 18000))
 DURATION_LIMIT = DURATION_LIMIT_MIN * 60
 
 TG_AUDIO_FILESIZE_LIMIT = int(getenv("TG_AUDIO_FILESIZE_LIMIT", "5242880000"))
 TG_VIDEO_FILESIZE_LIMIT = int(getenv("TG_VIDEO_FILESIZE_LIMIT", "5242880000"))
-PLAYLIST_FETCH_LIMIT = int(getenv("PLAYLIST_FETCH_LIMIT", 25))
+PLAYLIST_FETCH_LIMIT = int(getenv("PLAYLIST_FETCH_LIMIT", 30))
 
 # ============================================================
 # ☁️ HEROKU / GIT SETTINGS
 # ============================================================
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME", "tnc-music")
 HEROKU_API_KEY = getenv("HEROKU_API_KEY", "")
-UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/sexyxcoders/TNC-Music")
+UPSTREAM_REPO = getenv("UPSTREAM_REPO", "")
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
 GIT_TOKEN = getenv("GIT_TOKEN", None)
 
@@ -77,8 +77,8 @@ SONG_DOWNLOAD_DURATION_LIMIT = int(getenv("SONG_DOWNLOAD_DURATION_LIMIT", "99999
 # ============================================================
 # 🎧 SPOTIFY API
 # ============================================================
-SPOTIFY_CLIENT_ID = getenv("SPOTIFY_CLIENT_ID", "1c21247d714244ddbb09925dac565aed")
-SPOTIFY_CLIENT_SECRET = getenv("SPOTIFY_CLIENT_SECRET", "709e1a2969664491b58200860623ef19")
+SPOTIFY_CLIENT_ID = getenv("SPOTIFY_CLIENT_ID", "")
+SPOTIFY_CLIENT_SECRET = getenv("SPOTIFY_CLIENT_SECRET", "")
 
 # ============================================================
 # 🔐 SESSION STRINGS (USERBOTS)
@@ -99,7 +99,7 @@ adminlist, lyrical, votemode = {}, {}, {}
 autoclean, confirmer = [], {}
 
 # ============================================================
-# 🖼️ TNC BRAND IMAGES
+# IMAGES
 # ============================================================
 START_IMG_URL = getenv("START_IMG_URL", "https://files.catbox.moe/exw839.jpg")
 PING_IMG_URL = getenv("PING_IMG_URL", "https://files.catbox.moe/ddkc5f.jpg")
@@ -132,7 +132,7 @@ TNC_STICKERS_ID = [
 
 # 🩵 TNC BRAND SLOGANS (for captions, messages, embeds)
 TNC_BRAND_TAGLINE = "🎧 Powering Music • Powered by TNC Network"
-TNC_CREDITS = "© 2025 TNC X Music | A SexyXCoders Project 🚀"
+TNC_CREDITS = "© 2025 TNC X Music | A @TNCmeetups Project 🚀"
 
 # ============================================================
 # ✅ END OF CONFIG
